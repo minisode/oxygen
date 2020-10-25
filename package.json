@@ -1,0 +1,21 @@
+{
+  "name": "oxygen-x",
+  "main": "index.js",
+  "version": "1.0.2",
+  "license": "MIT",
+  "bin": {
+    "oxygen": "bin/oxygen.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "faker": "^4.1.0",
+    "fs-extra": "^9.0.1",
+    "lodash": "^4.17.19",
+    "minimist": "^1.2.5",
+    "morgan": "^1.10.0",
+    "nanoid": "^3.1.12",
+    "nodemon": "^2.0.4",
+    "tiny-glob": "^0.2.6"
+  }
+}
