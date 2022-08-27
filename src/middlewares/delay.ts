@@ -1,10 +1,15 @@
-const range = require('lodash/range')
+import type { Request, Response, NextFunction } from 'express'
+import range from 'lodash/range'
 
-function delay(seconds) {
-  return new Promise(resolve => setTimeout(resolve, seconds * 1000))
+function delay(seconds: number = 1) {
+  return new Promise((resolve) => setTimeout(resolve, seconds * 1000))
 }
 
-async function delayMiddleware(request, response, next) {
+export default async function delayMiddleware(
+  request: Request,
+  response: Response,
+  next: NextFunction
+) {
   const _delay = Number(request.query._delay)
 
   if (range(1, 11).includes(_delay)) {
@@ -13,5 +18,3 @@ async function delayMiddleware(request, response, next) {
 
   return next()
 }
-
-module.exports = delayMiddleware
