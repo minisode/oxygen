@@ -1,6 +1,6 @@
-const minimist = require('minimist')
+import minimist from 'minimist'
 
-function optparse(argv) {
+export function optparse(argv: string[]) {
   return minimist(argv, {
     alias: {
       w: 'watch',
@@ -8,9 +8,7 @@ function optparse(argv) {
     },
     default: {
       w: true,
-      p: 4567
+      p: 3323
     }
   })
 }
-
-module.exports = optparse
