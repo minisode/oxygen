@@ -1,15 +1,14 @@
-// const script = `${__dirname}/server.js`
+import start from 'nodemon'
+const script = `${__dirname}/server.js`
 
-// function shutdown() {
-//   console.log('\0')
-//   process.exit()
-// }
+function shutdown() {
+  console.log('\0')
+  process.exit()
+}
 
-// // const nodemon = require('nodemon')
-// // module.exports = {
-// //   file: script,
-// //   watch(...args) {
-// //     nodemon({ watch: args, script })
-// //       .on('quit', () => shutdown())
-// //   }
-// // }
+export const nodemon = {
+  file: script,
+  watch(...args) {
+    start({ watch: args, script }).on('quit', () => shutdown())
+  }
+}
