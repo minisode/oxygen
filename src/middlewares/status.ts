@@ -10,7 +10,8 @@ export default async function statusMiddleware(
   const _status = Number(request.query._status)
 
   if (statuses.includes(_status)) {
-    return response.sendStatus(_status)
+    response.sendStatus(_status)
+    return undefined
   }
 
   return next()

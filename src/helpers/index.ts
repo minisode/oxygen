@@ -1,14 +1,15 @@
-const glob = require('tiny-glob')
+import glob from 'fast-glob'
+
 const ROOT_DIR = process.cwd()
 const OXYGEN_DIR = process.env.OXYGEN_DIR || '.oxygen'
 
-async function getPaths() {
-  return (await glob(`${OXYGEN_DIR}/**/*.js`))
+function getPaths() {
+  return glob.sync(`${OXYGEN_DIR}/**/*.js`)
 }
 
-async function getConfiguration() {
+export function getConfiguration() {
   let configuration = {}
-  const paths = await getPaths()
+  const paths = getPaths()
 
   for (let path of paths) {
     let routes = require(`${ROOT_DIR}/${path}`)
@@ -17,5 +18,3 @@ async function getConfiguration() {
 
   return configuration
 }
-
-module.exports = { getConfiguration }
